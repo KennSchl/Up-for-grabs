@@ -29,6 +29,19 @@ fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories
 
 
 function getPost(slug) {
-console.log(slug)
+      console.log(slug);
+      for (let post of posts) {
+if (post.slug === slug) {
+  console.log(post)
+  document.querySelector("#detailView").innerHTML = `
+  <article>
+    ${post.content.rendered}
+  </article>
+  `;
+}
+
+      }
+
+
 
 }
