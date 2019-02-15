@@ -1,6 +1,6 @@
 "use strict";
 
-let posts = [];
+let posts = []; //definere posts
 
 //Fetches json data fra headless cms (WordPress)
 fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=2") //Hent data fra wordpress api
