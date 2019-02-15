@@ -1,40 +1,34 @@
 "use strict";
 
-// hide all pages
-function hideAllPages() {
-  let pages = document.querySelectorAll(".page");
-  for (let page of pages) {
-    page.style.display = "none";
-  }
-}
+let posts = [];
 
-// show page or tab
-function showPage(pageId) {
-  hideAllPages();
-  document.querySelector(`#${pageId}`).style.display = "block";
-  setActiveTab(pageId);
-}
+//Fetches json data fra headless cms (WordPress)
+fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=2") //Hent data fra wordpress api
+  .then(function(response) { //Spørger api om der er noget at tage (response i det her tilfælde)
+    return response.json(); //Hvis den retunerer med et noget (et response)....
+  }) //Navngivningen (response) er lige meget, så længe de passer sammen
+  .then(function(json) { //....så (then) skal den sætte funktionen appendPosts i gang
+    appendPosts(json); //
+    console.log(json);
+    posts = json;
+  }); //Navngivningen (json) er igen ligemeget, så længe de passer sammen og giver mening*/
 
-// set default page
-function setDefaultPage() {
-  let page = "home";
-  if (location.hash) {
-    page = location.hash.slice(1);
-  }
-  showPage(page);
-}
-
-// sets active tabbar/ menu item
-function setActiveTab(pageId) {
-  let pages = document.querySelectorAll(".tabbar a");
-  for (let page of pages) {
-    if (`#${pageId}` === page.getAttribute("href")) {
-      page.classList.add("active");
-    } else {
-      page.classList.remove("active");
+// appends posts til DOM
+  function appendPosts(posts) {
+    let htmlTemplate = "";
+    for (let post of posts) {
+      console.log(post);
+      htmlTemplate += `
+      <article class = "grid-item" onclick="getPost('${post.slug}')">
+        ${post.content.rendered}
+      </article>
+      `;
     }
+    document.querySelector("#grid-posts").innerHTML = htmlTemplate;
+  };
 
-  }
+
+function getPost(slug) {
+console.log(slug)
+
 }
-
-setDefaultPage();
