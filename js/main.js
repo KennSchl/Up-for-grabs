@@ -3,7 +3,7 @@
 let posts = [];
 
 //Fetches json data fra headless cms (WordPress)
-fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=2") //Hent data fra wordpress api
+fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") //Hent data fra wordpress api
   .then(function(response) { //Spørger api om der er noget at tage (response i det her tilfælde)
     return response.json(); //Hvis den retunerer med et noget (et response)....
   }) //Navngivningen (response) er lige meget, så længe de passer sammen
@@ -19,9 +19,9 @@ fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories
     for (let post of posts) {
       console.log(post);
       htmlTemplate += `
-      <article class = "grid-item" onclick="getPost('${post.slug}')">
+      <section class="grid-item" onclick="getPost('${post.slug}')">
         ${post.content.rendered}
-      </article>
+      </section>
       `;
     }
     document.querySelector("#grid-posts").innerHTML = htmlTemplate;
@@ -32,7 +32,7 @@ function getPost(slug) {
       console.log(slug);
       for (let post of posts) {
 if (post.slug === slug) {
-  console.log(post)
+  console.log(post);
   document.querySelector("#detailView").innerHTML = `
   <article>
     ${post.content.rendered}
@@ -41,7 +41,23 @@ if (post.slug === slug) {
 }
 
       }
+        function removeGridPosts() {
+          document.getElementById("frontpage").style.display = "none";
+        }
 
-
-
+      setTimeout(removeGridPosts, 1000)
+      document.getElementById("frontpage").setAttribute(
+    "style", "transform: translateX(-110%);");
+      document.getElementById("burger").style.display = "none";
+      document.getElementById("bckarrow").style.display = "block";
+      document.getElementById("detailView").setAttribute(
+   "style", "display: inherit; transform: translateX(0%);");
 }
+
+function removePost() {
+  document.getElementById("frontpage").setAttribute(
+"style", "display: inherit; transform: translateX(0%);");
+  document.getElementById("burger").style.display = "inherit";
+  document.getElementById("bckarrow").style.display = "none";
+  document.getElementById("detailView").setAttribute(
+"style", "transform: translateX(110%);");}
