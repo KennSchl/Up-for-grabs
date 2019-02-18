@@ -3,12 +3,12 @@
 let posts = []; //definere posts
 
 //Fetches json data fra headless cms (WordPress)
-fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") //Hent data fra wordpress api
-  .then(function(response) { //Spørger api om der er noget at tage (response i det her tilfælde)
-    return response.json(); //Hvis den retunerer med et noget (et response)....
-  }) //Navngivningen (response) er lige meget, så længe de passer sammen
-  .then(function(json) { //....så (then) skal den sætte funktionen appendPosts i gang
-    appendPosts(json); //
+fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") 
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(json) {
+    appendPosts(json);
     console.log(json);
     posts = json;
   }); //Navngivningen (json) er igen ligemeget, så længe de passer sammen og giver mening*/
