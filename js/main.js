@@ -3,7 +3,7 @@
 let posts = []; //definere posts
 
 //Fetches json data fra headless cms (WordPress)
-fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") 
+fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6")
   .then(function(response) {
     return response.json();
   })
@@ -11,7 +11,7 @@ fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories
     appendPosts(json);
     console.log(json);
     posts = json;
-  }); //Navngivningen (json) er igen ligemeget, så længe de passer sammen og giver mening*/
+  }); 
 
 // appends posts til DOM
   function appendPosts(posts) {
