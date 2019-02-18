@@ -1,4 +1,4 @@
-var places = ["Aarhus C","Aarhus N","Silkeborg", "Århus C", "Århus N"];
+const places = ["Aarhus C","Aarhus N","Silkeborg", "Århus C", "Århus N"];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
@@ -35,6 +35,7 @@ function autocomplete(inp, arr) {
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
+
           });
           a.appendChild(b);
         }

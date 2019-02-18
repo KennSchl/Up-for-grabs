@@ -19,9 +19,10 @@ fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories
     for (let post of posts) {
       console.log(post);
       htmlTemplate += `
-      <section class="grid-item" id="${post.slug}" onclick="getPost('${post.slug}')">
+      <a href="#wrapper">
+      <section class="grid-item" onclick="getPost('${post.slug}')">
         ${post.content.rendered}
-      </section>
+      </section></a>
       `;
     }
     document.querySelector("#grid-posts").innerHTML = htmlTemplate;
