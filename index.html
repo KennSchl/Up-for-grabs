@@ -11,38 +11,51 @@
 </head>
 
 <body>
-  <div class="wrapper">
-<header>
-        	<div class="navbar"></div>
+  <div id="wrapper">
+    <header>
+      <div id="navbar"></div>
 
-
-	        <div class="circle"></div>
-			<div class="menu">
-				<ul>
-					<li><a href="">Forside</a></li>
-					<li><a href="">Find steder</a></li>
-					<li><a href="">Favoritter</a></li>
+      <div class="circle"></div>
+      <div class="menu">
+        <ul>
+          <li><a href="">Forside</a></li>
+          <li><a href="">Find steder</a></li>
+          <li><a href="">Favoritter</a></li>
           <li><a href="">Feed</a></li>
           <li><a href="">Tips & Tricks</a></li>
-				</ul>
-			</div>
-			<div class="burger">
-				<div class="x"></div>
-				<div class="y"></div>
+        </ul>
+      </div>
+      <div id="burger">
+        <div class="x"></div>
+        <div class="y"></div>
         <div class="z"></div>
-			</div>
-</header>
-  <!-- frontpage -->
-  <article id="grid-posts"></article>
-
-  <!-- supermarked-page -->
-  <article id="detailView"></article>
+      </div>
+      <img src="images/bck-arrow-ufg.png" alt="back arrow" id="bckarrow" onclick="removePost()">
 
 
-  <!-- main js file -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/burger.js"></script>
+    </header>
+    <div id="frontpage">
+    <article id="searchArticle">
+      <form autocomplete="off" action="/action_page.php">
+        <div class="autocomplete">
+          <input id="myInput" type="text" name="myCountry" placeholder="Hvor er du?">
+        </div>
+        <input type="image" src="images/searchicon.png" border="0" alt="submit" id="searchbutton">
+      </form>
+    </article>
+    <!-- frontpage -->
+    <article id="grid-posts"></article>
+  </div>
+    <!-- supermarked-page -->
+    <article id="detailView"></article>
+
+
+
+    <!-- main js file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/burger.js"></script>
+    <script src="js/searchbar.js"></script>
   </div>
 </body>
 
