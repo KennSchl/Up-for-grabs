@@ -98,3 +98,16 @@ document.addEventListener("click", function (e) {
 }
 
 autocomplete(document.getElementById("myInput"), places);
+
+function filterPosts(searchtext) {
+    console.log(searchtext);
+    for (let post of posts) {
+        if (post.content.rendered.indexOf(searchtext)!==-1) {
+            document.getElementById(post.slug).style.display = "block";
+        }       
+        else {
+           document.getElementById(post.slug).style.display = "none";  
+        }
+    }
+    
+}
