@@ -1,17 +1,17 @@
 "use strict";
 
-let posts = []; //definere posts
+let posts = [];
 
 //Fetches json data fra headless cms (WordPress)
-fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(json) {
-    appendPosts(json);
+fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") //Hent data fra wordpress api
+  .then(function(response) { //Spørger api om der er noget at tage (response i det her tilfælde)
+    return response.json(); //Hvis den retunerer med et noget (et response)....
+  }) //Navngivningen (response) er lige meget, så længe de passer sammen
+  .then(function(json) { //....så (then) skal den sætte funktionen appendPosts i gang
+    appendPosts(json); //
     console.log(json);
     posts = json;
-  }); 
+  }); //Navngivningen (json) er igen ligemeget, så længe de passer sammen og giver mening*/
 
 // appends posts til DOM
   function appendPosts(posts) {
@@ -19,10 +19,11 @@ fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories
     for (let post of posts) {
       console.log(post);
       htmlTemplate += `
-      <a href="#wrapper">
-      <section class="grid-item" onclick="getPost('${post.slug}')">
+        <a href="#wrapper">
+      <section class="grid-item" id="${post.slug}" onclick="getPost('${post.slug}')">
         ${post.content.rendered}
-      </section></a>
+      </section>
+        </a>
       `;
     }
     document.querySelector("#grid-posts").innerHTML = htmlTemplate;
@@ -61,4 +62,5 @@ function removePost() {
   document.getElementById("burger").style.display = "inherit";
   document.getElementById("bckarrow").style.display = "none";
   document.getElementById("detailView").setAttribute(
-"style", "transform: translateX(110%);");}
+"style", "transform: translateX(110%);");
+}

@@ -54,4 +54,5 @@ if( 'ontouchstart' in window ){ var click = 'touchstart'; }
 			$('div.y').show();
 			$('div.x, div.y, div.z').removeClass('collapse');
 		}, 70);
+		document.getElementById("wrapper").style.height = "inherit";
 	}
