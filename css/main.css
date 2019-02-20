@@ -27,7 +27,7 @@ h3 {color: #545C56; font-weight: bold;; font-size: 2em; margin-left: 2%;margin-b
 
 p {margin-left: 2%;margin-bottom: 1%;}
 
-.rating{width: 55%;margin-left: 22.5%; margin-right: 22.5%;margin-top: 4%;}
+.rating{width: 55%;margin-left: 22.5%; margin-right: 22.5%;margin-top: 4%; margin-bottom: 4%;transform: translateY(30%);}
 
 /*----------------------------------GRID--------------------------------------*/
 .grid-item {
@@ -337,10 +337,9 @@ transition: 1s;
 
 .navn {text-align: left; margin-left: 2%; font-size: 1.2em}
 
-.tlfrtg {width: 20%; text-align: center;}
-.star {text-align: center;}
-.tlffvrt {width: 20%; text-align: center;}
-.favorit {text-align: center;}
+.tlfrtg {width: 20%; text-align: center; display: none; margin-left: 20%; margin-top: 10%;}
+.tlffvrt {width: 20%; text-align: center; display: none; transform: translate(300%, -75%);
+}
 /*---------------------------------DETAILVIEW---------------------------------*/
 
 #detailView {
@@ -369,4 +368,21 @@ margin-inline-end: 0;
 
 #detailView .ratings {
     display: block;
+}
+
+#detailView .tlfrtg {display: inherit;}
+#detailView .tlffvrt {display: inherit;}
+
+@media only screen and (max-width: 321px) {
+
+	#detailView .tlffvrt {display: inherit; transform: translate(300%, -100%)}
+
+	input[type=text] {
+	  background-color: white;
+	  font-size: 2em;
+	  width: 80%;
+	  padding: 3%;
+	  border-radius: 15px;
+	  transform: translateY(-20%);
+
 }
