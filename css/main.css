@@ -42,10 +42,6 @@ p {margin-left: 2%;margin-bottom: 1%;}
 
 .grid-item figure {
   display: block;
-margin-block-start: 0;
-margin-block-end: 0;
-margin-inline-start: 0;
-margin-inline-end: 0;
 }
 
 .bigimg {
@@ -360,10 +356,6 @@ transition: 1s;
 
 #detailView figure {
   display: block;
-margin-block-start: 0;
-margin-block-end: 0;
-margin-inline-start: 0;
-margin-inline-end: 0;
 }
 
 #detailView .ratings {
