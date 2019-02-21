@@ -372,6 +372,8 @@ div.menu li.animate:nth-of-type(6) {
   transition: 1s;
 }
 
+#logo {width: 80%; margin-left: 10%; margin-right: 10%; margin-bottom: 2%;}
+
 #grid-posts {
   grid-row: 4;
   grid-column: 1;
@@ -465,5 +467,4 @@ div.menu li.animate:nth-of-type(6) {
     width: 80%;
     padding: 3%;
     border-radius: 15px;
-    transform: translateY(-20%);
-  }
+    transform: translateY(-20%);}
