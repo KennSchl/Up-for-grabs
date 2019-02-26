@@ -3,7 +3,7 @@
 let posts = [];
 
 //Fetches json data fra headless cms (WordPress)
-fetch("http://betinaringgaard.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=6") //Hent data fra wordpress api
+fetch("http://mmlstudios.dk/wordpress/wp-json/wp/v2/posts?_embed&categories=3") //Hent data fra wordpress api
   .then(function(response) { //Spørger api om der er noget at tage (response i det her tilfælde)
     return response.json(); //Hvis den retunerer med et noget (et response)....
   }) //Navngivningen (response) er lige meget, så længe de passer sammen
